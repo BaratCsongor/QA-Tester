@@ -15,3 +15,6 @@ firstResult.click()
 
 with soft_assertions():
     assert_that(driver.title).contains("Mouse")
+
+
+driver.quit()
