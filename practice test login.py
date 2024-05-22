@@ -22,9 +22,14 @@ password.send_keys("Password123")
 submit.click()
 
 
-title = wait.until(EC.presence_of_element_located((By.TAG_NAME,"h1")))
-print("Mesajul principal este:", title.text)
+welcomeMessage = wait.until(EC.presence_of_element_located((By.TAG_NAME,"h1")))
+print("Mesajul principal este:", welcomeMessage.text)
 with soft_assertions():
+    # Verifica daca Url-ul contine "practicetestautomation.com/logged-in-successfully/"
     assert_that(driver.current_url).contains("practicetestautomation.com/logged-in-successfully/")
-    assert_that(title.text).contains("Successfully")
+
+    # Verifica daca mesajul de intampinare contine cuvantul "Succesfully"
+    assert_that(welcomeMessage.text).contains("Successfully")
+    
+    # Verifica prezenta butonului Logout
     assert_that(driver.find_element(By.XPATH, "//*[@id='loop-container']/div/article/div[2]/div/div/div/a")).is_true()
