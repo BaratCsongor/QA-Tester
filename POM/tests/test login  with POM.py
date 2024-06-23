@@ -1,6 +1,6 @@
 import sys
 sys.path.append("d:\Projects\QA Tester\POM")
-print(sys.path)
+
 from selenium import webdriver
 from pages.loginpage import loginPage as LP
 from unittest import TestCase as TC
@@ -12,14 +12,14 @@ class LoginPage(TC):
 
         self.driver = webdriver.Chrome()
         
-    def test_login(self):
+    def test_login_positive(self):
         
         loginPage = LP(self.driver)
 
 
         loginPage.goToLogin()
-        loginPage.setUsername()
-        loginPage.setPassword()
+        loginPage.setUsername("student")
+        loginPage.setPassword("Password123")
         loginPage.clickSubmit()
         loginPage.verifyTitle()
 
