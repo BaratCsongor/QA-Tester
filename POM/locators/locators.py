@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 
-class loginLocators():
+class loginLocators:
 
     username = (By.ID,"username")
     password = (By.ID,"password")

@@ -1,12 +1,11 @@
 import sys
-sys.path.append("d:\Projects\QA Tester\POM")
+sys.path.append("d:/Projects/QA_Tester/POM")
 
 from selenium import webdriver
 from pages.loginpage import loginPage as LP
-from unittest import TestCase as TC
 import unittest
 
-class LoginPage(TC):
+class LoginPage(unittest.TestCase):
 
     def setUp(self):
 
@@ -15,7 +14,7 @@ class LoginPage(TC):
     def test_login_positive(self):
         
         loginPage = LP(self.driver)
-
+    
 
         loginPage.goToLogin()
         loginPage.setUsername("student")

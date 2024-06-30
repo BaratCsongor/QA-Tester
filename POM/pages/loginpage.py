@@ -29,9 +29,8 @@ class loginPage:
         submit.click()
 
     def verifyTitle(self):
-         
-         wait = WebDriverWait(self.driver,10)
-         title =self.driver.find_element(*logL.title)
+         wait= WebDriverWait(self.driver,10)
+         title = wait.until(EC.presence_of_element_located(logL.title))
 
          with soft_assertions():
             assert_that(title).is_true()
